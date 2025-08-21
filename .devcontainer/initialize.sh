@@ -14,6 +14,9 @@ echo "Checking and installing Python packages..."
 pip_package_installed "bing-image-downloader" || pip install bing-image-downloader==1.1.2
 pip_package_installed "jupyter" || pip install jupyter==1.1.1
 
+# Set HOME explicitly for pip installations
+export HOME="/root"
+
 # Install DeepImageSearch with specific dependencies to avoid conflicts
 # Using the PyTorch-based version with compatible torch version
 if ! pip_package_installed "DeepImageSearch"; then
@@ -24,5 +27,8 @@ if ! pip_package_installed "DeepImageSearch"; then
   pip install numpy 
   pip install DeepImageSearch==2.5
 fi
+
+# Make sure pip binaries are in PATH
+export PATH="$PATH:/usr/local/bin"
 
 echo "Environment setup complete!"
