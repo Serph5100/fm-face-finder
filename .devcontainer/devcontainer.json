@@ -8,7 +8,8 @@
 	"workspaceFolder": "/workspace"
 
 	// Install build tools and git, then upgrade pip
-	//"postCreateCommand": "chmod +x .devcontainer/initialize.sh && .devcontainer/initialize.sh"
+	// Run this in Bash
+	// chmod +x .devcontainer/initialize.sh && .devcontainer/initialize.sh
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

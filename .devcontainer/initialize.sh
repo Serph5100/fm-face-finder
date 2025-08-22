@@ -27,6 +27,12 @@ if ! pip_package_installed "DeepImageSearch"; then
   pip install DeepImageSearch==2.5
 fi
 
+# Install autocrop package
+if ! pip_package_installed "autocrop"; then
+  echo "Installing autocrop package..."
+  pip install autocrop
+fi
+
 # Make sure pip binaries are in PATH
 export PATH="$PATH:/usr/local/lib/python3.12/site-packages"
 
