@@ -29,6 +29,6 @@ if ! pip_package_installed "DeepImageSearch"; then
 fi
 
 # Make sure pip binaries are in PATH
-export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/local/lib/python3.12/site-packages/bin"
 
 echo "Environment setup complete!"
