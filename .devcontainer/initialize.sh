@@ -12,7 +12,6 @@ pip_package_installed() {
 # Install packages
 echo "Checking and installing Python packages..."
 pip_package_installed "bing-image-downloader" || pip install bing-image-downloader==1.1.2
-pip_package_installed "jupyter" || pip install jupyter==1.1.1
 
 # Set HOME explicitly for pip installations
 export HOME="/root"
@@ -29,6 +28,6 @@ if ! pip_package_installed "DeepImageSearch"; then
 fi
 
 # Make sure pip binaries are in PATH
-export PATH="$PATH:/usr/local/lib/python3.12/site-packages/bin"
+export PATH="$PATH:/usr/local/lib/python3.12/site-packages"
 
 echo "Environment setup complete!"

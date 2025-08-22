@@ -4,11 +4,11 @@
 	"name": "Alpine",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "python", // Change to "r" to attach to the R container by default
-	"runServices": ["python", "r"],
-	"workspaceFolder": "/workspace",
+	"runServices": ["python"],
+	"workspaceFolder": "/workspace"
 
 	// Install build tools and git, then upgrade pip
-	"postCreateCommand": "chmod +x .devcontainer/initialize.sh && .devcontainer/initialize.sh"
+	//"postCreateCommand": "chmod +x .devcontainer/initialize.sh && .devcontainer/initialize.sh"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
