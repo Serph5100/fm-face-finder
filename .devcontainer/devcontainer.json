@@ -8,8 +8,12 @@
 	"workspaceFolder": "/workspace"
 
 	// Install build tools and git, then upgrade pip
-	// Run this in Bash
-	// chmod +x .devcontainer/initialize.sh && .devcontainer/initialize.sh
+	// Run this in Dash
+	// sh .devcontainer/initialize.sh
+
+	// Set up Python environment
+	// Run this in Dash
+	// sh .devcontainer/python_env.sh
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

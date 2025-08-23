@@ -32,14 +32,6 @@ if ! pip_package_installed "autocrop"; then
   pip install autocrop
 fi
 
-# Upgrade pip and install Jupyter
-pip install --upgrade pip
-pip install --no-cache-dir jupyter==1.1.1 jupyterlab
-
-# Clean up Jupyter-related cache
-find /usr/local/lib/python3.12/site-packages -type d \( -name "jupyter*" -o -name "notebook*" \) -exec rm -rf {}/__pycache__ {}/*.dist-info \; && \
-rm -rf /root/.cache/pip /tmp/*
-
 # Make sure pip binaries are in PATH
 export PATH="$PATH:/usr/local/lib/python3.12/site-packages"
 
