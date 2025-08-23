@@ -5,7 +5,6 @@ set -e
 apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     musl-dev \
-    python3-dev \
     git \
     cmake \
     make \
