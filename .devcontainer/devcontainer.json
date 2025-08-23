@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/alpine
 {
-	"name": "Alpine",
+	"name": "Slim-Bullseye",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "python", // Change to "r" to attach to the R container by default
 	"runServices": ["python"],
