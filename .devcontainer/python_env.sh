@@ -11,10 +11,6 @@ pip_package_installed() {
 export PATH="$PATH:/usr/local/lib/python3.12/site-packages"
 export HOME="/root"
 
-# Upgrade pip to the latest version
-echo "Upgrading pip to the latest version..."
-pip install --upgrade pip
-
 # Install Python packages
 echo "Checking and installing required Python packages..."
 
@@ -37,6 +33,12 @@ fi
 if ! pip_package_installed "autocrop"; then
   echo "Installing autocrop..."
   pip install autocrop
+fi
+
+# Install scikit-image
+if ! pip_package_installed "scikit-image"; then
+  echo "Installing scikit-image..."
+  pip install scikit-image
 fi
 
 # Reinstall Jupyter to ensure binaries are created in /usr/local/bin
