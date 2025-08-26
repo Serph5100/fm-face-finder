@@ -25,7 +25,7 @@ if ! pip_package_installed "DeepImageSearch"; then
   echo "Installing DeepImageSearch and its dependencies..."
   pip install torch==2.2.0+cpu --index-url https://download.pytorch.org/whl/cpu
   pip install torchvision --index-url https://download.pytorch.org/whl/cpu
-  pip install numpy
+  pip install numpy==1.23.5
   pip install DeepImageSearch==2.5
 fi
 
