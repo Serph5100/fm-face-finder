@@ -20,12 +20,16 @@ if ! pip_package_installed "bing-image-downloader"; then
   pip install bing-image-downloader==1.1.2
 fi
 
+if ! pip_package_installed "head_detector"; then
+  echo "Installing head_detector..."
+  pip install torchvision==0.15.2+cpu --index-url https://download.pytorch.org/whl/cpu
+  pip install git+https://github.com/KupynOrest/head_detector.git
+fi
+
 # Install DeepImageSearch and its dependencies
 if ! pip_package_installed "DeepImageSearch"; then
   echo "Installing DeepImageSearch and its dependencies..."
-  pip install torch==2.2.0+cpu --index-url https://download.pytorch.org/whl/cpu
-  pip install torchvision --index-url https://download.pytorch.org/whl/cpu
-  pip install numpy==1.23.5
+  pip install faiss-cpu==1.7.3
   pip install DeepImageSearch==2.5
 fi
 
@@ -44,5 +48,8 @@ fi
 # Reinstall Jupyter to ensure binaries are created in /usr/local/bin
 echo "Reinstalling Jupyter to ensure binaries are linked..."
 pip install --no-cache-dir --force-reinstall jupyter
+
+# Downgrading Numpy to 1.26.4 for compatibility between packages.
+pip install --force-reinstall numpy==1.26.4
 
 echo "Python environment setup complete!"
