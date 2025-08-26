@@ -208,3 +208,6 @@ __marimo__/
 
 #ignore dataset folder
 proj/python/dataset/
+
+#ignore vscode
+.vscode/
