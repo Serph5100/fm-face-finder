@@ -100,3 +100,16 @@ def extend_to_custom_rect(bbox: np.ndarray, height: int, width: int) -> np.ndarr
         new_w = h * target_aspect
         diff = new_w - w
         return np.array([x - diff // 2, y, int(new_w), h]).astype("int32")
+
+def resize_image(image: np.ndarray, target_size: tuple[int, int]) -> np.ndarray:
+    '''Resize the given image to the target size.
+
+    :param image: The input image.
+    :type image: np.ndarray
+    :param target_size: The desired output size as (width, height).
+    :type target_size: tuple[int, int]
+
+    :return: The resized image.
+    :rtype: np.ndarray
+    '''
+    return cv2.resize(image, target_size)
