@@ -5,7 +5,11 @@
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "python", // Change to "r" to attach to the R container by default
 	"runServices": ["python"],
-	"workspaceFolder": "/workspace"
+	"workspaceFolder": "/workspaces",
+
+	"containerEnv": {
+		"PYTHONPATH": "/workspaces/fm-face-finder"
+	}
 
 	// Install build tools and git, then upgrade pip
 	// Run this in Dash
