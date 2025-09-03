@@ -12,7 +12,7 @@ def download_image_bing(query: object) -> str :
     """
 
     # Construct the search query
-    search_query = f"footballer {query['Name']} {query['Club']} {DESIRED_SEASON}"
+    search_query = f"footballer {query['Name']} {query['Club']} \"{DESIRED_SEASON}\""
 
     # Download images using the downloader
     success = downloader(
