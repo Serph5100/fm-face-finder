@@ -65,9 +65,14 @@ def crop_image(image: np.ndarray, folder_name: str, image_num: int) -> bool:
 
     print(f"x={x}, y={y}, w={w}, h={h}")
 
-    image = util.convertToRGB(image[y:y+h, x:x+w])
+    image = image[y:y+h, x:x+w]
 
     save_path = os.path.join(CROPPED_IMAGES_PATH, folder_name, f"cropped_{image_num}.jpg")
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
 
-    return cv2.imwrite(save_path, image)
+    return cv2.imwrite(save_path, 
+                       util.resize_image(
+                       util.convertToRGB(image),
+                       IMAGE_SIZE
+                       )
+                       )

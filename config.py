@@ -14,6 +14,8 @@ DATA_START_ROW = 2  # Assuming the first row is the header
 # Bing download settings
 BING_IMAGES_PER_PLAYER = 5
 BING_DOWNLOAD_PATH = os.path.join(OUTPUT_DIR, "bing_images")
+BING_DOWNLOAD_VERBOSE = False # Set to True for detailed logs
+BING_BAD_FILTER_WEBSITE = []
 
 # Processing settings
 CROPPED_IMAGES_PATH = os.path.join(OUTPUT_DIR, "cropped")

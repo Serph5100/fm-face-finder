@@ -76,7 +76,7 @@ def extend_to_rect(bbox: np.ndarray) -> np.ndarray:
         diff = h - w
         return np.array([x - diff // 2, y, h, h])
 
-def extend_to_custom_rect(bbox: np.ndarray, height: int, width: int) -> np.ndarray:
+def extend_to_custom_rect(bbox: np.ndarray, width: int = 260, height: int = 310) -> np.ndarray:
     '''Convert the bounding box to a custom rectangle while maintaining its center.
 
     :param bbox: The input bounding box as [x, y, w, h].
