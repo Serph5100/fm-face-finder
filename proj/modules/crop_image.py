@@ -71,7 +71,7 @@ def crop_image(image: np.ndarray, folder_name: str, image_num: int) -> bool:
     image = image[y:y+h, x:x+w]
     image = util.resize_image(image, IMAGE_SIZE)
 
-    save_path = os.path.join(CROPPED_IMAGES_PATH, folder_name, f"cropped_{image_num}.jpg")
+    save_path = os.path.join(CROPPED_IMAGES_PATH, str(folder_name), f"cropped_{str(image_num)}.jpg")
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
 
     print(f"Saving cropped image {image_num} to {save_path}")

@@ -95,11 +95,11 @@ def extend_to_custom_rect(bbox: np.ndarray, width: int = 260, height: int = 310)
     if current_aspect > target_aspect:
         new_h = w / target_aspect
         diff = new_h - h
-        return np.array([x, y - diff // 2, w, int(new_h)]).astype("int32")
+        return validate_box_size(np.array([x, y - diff // 2, w, int(new_h)]).astype("int32"))
     else:
         new_w = h * target_aspect
         diff = new_w - w
-        return np.array([x - diff // 2, y, int(new_w), h]).astype("int32")
+        return validate_box_size(np.array([x - diff // 2, y, int(new_w), h]).astype("int32"))
 
 def resize_image(image: np.ndarray, target_size: tuple[int, int]) -> np.ndarray:
     '''Resize the given image to the target size.
@@ -112,4 +112,23 @@ def resize_image(image: np.ndarray, target_size: tuple[int, int]) -> np.ndarray:
     :return: The resized image.
     :rtype: np.ndarray
     '''
+
+    # Ensure the any point is not negative value
+    
     return cv2.resize(image, target_size)
+
+def validate_box_size(box: np.ndarray) -> np.ndarray:
+    '''Ensure that the bounding box has non-negative coordinates and dimensions.
+
+    :param box: The input bounding box as [x, y, w, h].
+    :type box: np.ndarray
+
+    :return: The validated bounding box with non-negative values.
+    :rtype: np.ndarray
+    '''
+    x, y, w, h = box
+    x = max(0, x)
+    y = max(0, y)
+    w = max(0, w)
+    h = max(0, h)
+    return np.array([x, y, w, h]).astype("int32")

@@ -25,5 +25,8 @@ BING_BAD_FILTER_WEBSITE = []
 
 # Processing settings
 CROPPED_IMAGES_PATH = os.path.join(OUTPUT_DIR, "cropped")
+
+# Base Image Path : image you use to find the most familiar image out of the set
+BASE_IMAGE_PATH = os.path.join(INPUT_DIR, "base_image")
 FINAL_IMAGES_PATH = os.path.join(OUTPUT_DIR, "player_faces")
 

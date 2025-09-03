@@ -14,10 +14,10 @@ export HOME="/root"
 # Install Python packages
 echo "Checking and installing required Python packages..."
 
-# Install better-bing-image-downloader
-if ! pip_package_installed "better-bing-image-downloader"; then
-  echo "Installing better-bing-image-downloader..."
-  pip install better-bing-image-downloader==2.0
+# Install bing-image-downloader
+if ! pip_package_installed "bing-image-downloader"; then
+  echo "Installing bing-image-downloader..."
+  pip install bing-image-downloader==1.1.2
 fi
 
 if ! pip_package_installed "head_detector"; then
@@ -33,11 +33,17 @@ if ! pip_package_installed "DeepImageSearch"; then
   pip install DeepImageSearch==2.5
 fi
 
-# Install autocrop
-if ! pip_package_installed "autocrop"; then
-  echo "Installing autocrop..."
-  pip install autocrop
+# Install openpyxl
+if ! pip_package_installed "openpyxl"; then
+  echo "Installing openpyxl..."
+  pip install openpyxl==3.1.5
 fi
+
+# Install autocrop
+#if ! pip_package_installed "autocrop"; then
+#  echo "Installing autocrop..."
+#  pip install autocrop
+#fi
 
 # Install scikit-image
 if ! pip_package_installed "scikit-image"; then

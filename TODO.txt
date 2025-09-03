@@ -1,0 +1,18 @@
+EDITED PACKAGE
+HeadDetector() :
+
+def _read_model(self, model: str) -> torch.jit.ScriptModule:
+        model_path = hf_hub_download(REPO_ID, f"{model}.trcd")
+        loaded_model = torch.jit.load(model_path, map_location=self._device)
+
+=====================
+
+Better_Bing_Image_Downloader -> Downloader :
+
+- remove the request about asking for image source
+
+=====================
+
+DeepImageSearch -> SearchSetup :
+
+- remove the request on extracting model again.
