@@ -14,10 +14,10 @@ export HOME="/root"
 # Install Python packages
 echo "Checking and installing required Python packages..."
 
-# Install bing-image-downloader
-if ! pip_package_installed "bing-image-downloader"; then
-  echo "Installing bing-image-downloader..."
-  pip install bing-image-downloader==1.1.2
+# Install better-bing-image-downloader
+if ! pip_package_installed "better-bing-image-downloader"; then
+  echo "Installing better-bing-image-downloader..."
+  pip install better-bing-image-downloader==2.0
 fi
 
 if ! pip_package_installed "head_detector"; then

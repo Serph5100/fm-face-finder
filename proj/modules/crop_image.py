@@ -3,7 +3,7 @@ This Script is for cropping image focused on a human head, using VGGHeads Librar
 """
 import os
 
-from config import CROPPED_IMAGES_PATH, BING_DOWNLOAD_PATH
+from config import CROPPED_IMAGES_PATH, IMAGE_SIZE
 
 import numpy as np
 
@@ -24,7 +24,7 @@ np.str = np.str_
 # ================= initialize head detector =================
 detector = HeadDetector()
 
-def crop_image(image: np.ndarray, save_path: str) -> bool:
+def crop_image(image: np.ndarray, folder_name: str, image_num: int) -> bool:
     '''Crop the image to focus on the human head and save it to the specified path.
 
     :param image_path: The path to the input image.
@@ -36,4 +36,36 @@ def crop_image(image: np.ndarray, save_path: str) -> bool:
     :rtype: bool
     '''
     
-    predictions = detector.detect(image)
+    predictions = detector(image)
+
+    # ==== Only choose to write image with 1 head. ====
+    if len(predictions.heads) > 1 :
+        return False
+
+    image_copy = image.copy()
+
+    image_height = image_copy.shape[0]
+    image_width = image_copy.shape[1]
+
+    # ==== Expand bounding box to cover other part of the body ====
+    for head in predictions.heads:
+    
+        rectangles = util.extend_to_custom_rect(
+        util.extend_bbox_ratio(bbox=head.bbox, 
+                                  height=image_height, 
+                                  width=image_width,
+                                  offset=0.5
+                                  ),
+                                  width=IMAGE_SIZE[0],
+                                  height=IMAGE_SIZE[1]
+        )
+        x, y, w, h = rectangles
+
+    print(f"x={x}, y={y}, w={w}, h={h}")
+
+    image = util.convertToRGB(image[y:y+h, x:x+w])
+
+    save_path = os.path.join(CROPPED_IMAGES_PATH, folder_name, f"cropped_{image_num}.jpg")
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+
+    return cv2.imwrite(save_path, image)
