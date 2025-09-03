@@ -37,11 +37,12 @@ def crop_image(image: np.ndarray, folder_name: str, image_num: int) -> bool:
     :return: True if cropping and saving were successful, False otherwise.
     :rtype: bool
     '''
-    
+    # ==== Find Head from the image ====
     predictions = detector(image)
 
     # ==== Only choose to write image with 1 head. ====
     if len(predictions.heads) > 1 :
+        print(f"Image has more than 1 head, skipping image.")
         return False
 
     image_copy = image.copy()
@@ -65,14 +66,14 @@ def crop_image(image: np.ndarray, folder_name: str, image_num: int) -> bool:
 
     print(f"x={x}, y={y}, w={w}, h={h}")
 
+
+    # ==== Crop and Resizing Image ====
     image = image[y:y+h, x:x+w]
+    image = util.resize_image(image, IMAGE_SIZE)
 
     save_path = os.path.join(CROPPED_IMAGES_PATH, folder_name, f"cropped_{image_num}.jpg")
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
 
-    return cv2.imwrite(save_path, 
-                       util.resize_image(
-                       util.convertToRGB(image),
-                       IMAGE_SIZE
-                       )
-                       )
+    print(f"Saving cropped image {image_num} to {save_path}")
+
+    return cv2.imwrite(save_path, image)

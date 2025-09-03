@@ -214,3 +214,6 @@ proj/__pycache__
 
 #ignore vscode
 .vscode/
+
+#ignore output image
+output/
