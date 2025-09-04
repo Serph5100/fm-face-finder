@@ -2,7 +2,6 @@
 This Script is for cropping image focused on a human head, using VGGHeads Library
 """
 import os
-import sys
 
 from config import CROPPED_IMAGES_PATH, IMAGE_SIZE
 

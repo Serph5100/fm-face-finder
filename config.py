@@ -11,7 +11,7 @@ DESIRED_SEASON = "1994"
 IMAGE_SIZE = (260, 310)  # Width, Height
 
 # Excel File Path
-EXCEL_FILE_PATH = os.path.join(INPUT_DIR, "serie_a_1994.xlsx")
+EXCEL_FILE_PATH = os.path.join(INPUT_DIR, "serie_a_1994.xlsx") # Name of the Excel file
 
 # Range
 EXCEL_SHEET_NAME = "Sheet1"
@@ -22,7 +22,7 @@ DATA_END_ROW = 15  # Adjust as needed
 BING_IMAGES_PER_PLAYER = 5
 BING_DOWNLOAD_PATH = os.path.join(OUTPUT_DIR, "downloaded")
 BING_DOWNLOAD_VERBOSE = False # Set to True for detailed logs
-BING_BAD_FILTER_WEBSITE = []
+BING_BAD_FILTER_WEBSITE = [] # List of website to filter out from searching.
 
 # Processing settings
 CROPPED_IMAGES_PATH = os.path.join(OUTPUT_DIR, "cropped")

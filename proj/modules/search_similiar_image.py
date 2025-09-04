@@ -7,8 +7,8 @@ import shutil
 base_image_list = Load_Data().from_folder([BASE_IMAGE_PATH])
 print(f'Base Image List : {base_image_list}')
 
-
 model_name = 'vgg19'
+
 search_model = Search_Setup(image_list=base_image_list, model_name=model_name, pretrained=True, image_count=5)
 
 def clear_metadata(model_name: str):
@@ -25,8 +25,11 @@ def clear_metadata(model_name: str):
 
 def search_familiar_image(folder_name: str) -> str:
     """
-    Searches for the most similar image in the specified folder and saves it to CROPPED_IMAGES_PATH.
-    Returns the path of the saved image.
+    Searches for the most similar image in the specified folder and saves it to FINAL_IMAGES_PATH.
+    
+    :param folder_name: The name of the folder containing cropped images.
+    :return: The path to the saved similar image, or None if no image was found.
+    :rtype: str or None
     """
     # Clear metadata and index files
     clear_metadata(model_name=model_name)

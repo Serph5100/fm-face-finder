@@ -7,7 +7,7 @@ def download_image_bing(query: object) -> str :
     Download images from Bing based on the provided query.
     The Query shall contain player name, club, and season before searching
 
-    :param query: A list containing player name, club, and season
+    :param query: A list containing player name and club
     :return: True if download was successful, False otherwise
     """
 

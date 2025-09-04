@@ -44,3 +44,5 @@ if __name__ == "__main__":
             print(f"Similar image saved at: {player_image_path}")
         else:
             print("No similar image found.")
+
+    print("********************* Process completed. *********************")
