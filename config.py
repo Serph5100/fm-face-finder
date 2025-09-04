@@ -15,7 +15,8 @@ EXCEL_FILE_PATH = os.path.join(INPUT_DIR, "serie_a_1994.xlsx")
 
 # Range
 EXCEL_SHEET_NAME = "Sheet1"
-DATA_START_ROW = 2  # Assuming the first row is the header
+DATA_START_ROW = 5  # Assuming the first row is the header
+DATA_END_ROW = 15  # Adjust as needed
 
 # Bing download settings
 BING_IMAGES_PER_PLAYER = 5
@@ -28,5 +29,5 @@ CROPPED_IMAGES_PATH = os.path.join(OUTPUT_DIR, "cropped")
 
 # Base Image Path : image you use to find the most familiar image out of the set
 BASE_IMAGE_PATH = os.path.join(INPUT_DIR, "base_image")
-FINAL_IMAGES_PATH = os.path.join(OUTPUT_DIR, "player_faces")
+FINAL_IMAGES_PATH = os.path.join(OUTPUT_DIR, "player_face")
 

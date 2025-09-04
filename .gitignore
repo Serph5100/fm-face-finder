@@ -218,5 +218,5 @@ proj/__pycache__
 #ignore output image
 output/
 
-#ignore input files
-input/
+#ignore metadata files
+metadata-files/

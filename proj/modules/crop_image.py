@@ -41,8 +41,8 @@ def crop_image(image: np.ndarray, folder_name: str, image_num: int) -> bool:
     predictions = detector(image)
 
     # ==== Only choose to write image with 1 head. ====
-    if len(predictions.heads) > 1 :
-        print(f"Image has more than 1 head, skipping image.")
+    if len(predictions.heads) > 1 or len(predictions.heads) == 0:
+        print(f"Image has more than 1 head / no head detected, skipping image.")
         return False
 
     image_copy = image.copy()
