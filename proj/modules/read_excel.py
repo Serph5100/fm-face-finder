@@ -1,3 +1,6 @@
+"""
+Module to read data from an Excel file that is specified in the config.py file.
+"""
 from config import EXCEL_FILE_PATH, EXCEL_SHEET_NAME
 import pandas as pd
 

@@ -113,7 +113,7 @@ def resize_image(image: np.ndarray, target_size: tuple[int, int]) -> np.ndarray:
     :rtype: np.ndarray
     '''
 
-    # Ensure the any point is not negative value
+    
     
     return cv2.resize(image, target_size)
 

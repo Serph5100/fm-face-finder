@@ -3,7 +3,7 @@ This Script is for cropping image focused on a human head, using VGGHeads Librar
 """
 import os
 
-from config import CROPPED_IMAGES_PATH, IMAGE_SIZE
+from config import CROPPED_IMAGES_PATH, IMAGE_SIZE, BORDER_COLOR, BORDER_SIZE
 
 import numpy as np
 
@@ -49,6 +49,10 @@ def crop_image(image: np.ndarray, folder_name: str, image_num: int) -> bool:
     image_height = image_copy.shape[0]
     image_width = image_copy.shape[1]
 
+    # Resize the image to account for the border size
+    inner_width = IMAGE_SIZE[0] - 2 * BORDER_SIZE
+    inner_height = IMAGE_SIZE[1] - 2 * BORDER_SIZE
+
     # ==== Expand bounding box to cover other part of the body ====
     for head in predictions.heads:
     
@@ -58,8 +62,8 @@ def crop_image(image: np.ndarray, folder_name: str, image_num: int) -> bool:
                                   width=image_width,
                                   offset=0.5
                                   ),
-                                  width=IMAGE_SIZE[0],
-                                  height=IMAGE_SIZE[1]
+                                  width=inner_width,
+                                  height=inner_height
         )
         x, y, w, h = rectangles
 
@@ -67,8 +71,12 @@ def crop_image(image: np.ndarray, folder_name: str, image_num: int) -> bool:
 
 
     # ==== Crop and Resizing Image ====
+     
     image = image[y:y+h, x:x+w]
-    image = util.resize_image(image, IMAGE_SIZE)
+    image = util.resize_image(image, (inner_width, inner_height))
+
+    # ==== Create border for the image ====
+    image = cv2.copyMakeBorder(image, BORDER_SIZE, BORDER_SIZE, BORDER_SIZE, BORDER_SIZE, borderType=cv2.BORDER_CONSTANT, value=BORDER_COLOR)
 
     save_path = os.path.join(CROPPED_IMAGES_PATH, str(folder_name), f"cropped_{str(image_num)}.jpg")
     os.makedirs(os.path.dirname(save_path), exist_ok=True)

@@ -1,3 +1,7 @@
+"""
+This script is for downloading images from Bing using the better_bing_image_downloader library.
+"""
+
 from better_bing_image_downloader import downloader
 import os
 from config import DESIRED_SEASON, BING_BAD_FILTER_WEBSITE, BING_DOWNLOAD_PATH, BING_DOWNLOAD_VERBOSE, BING_IMAGES_PER_PLAYER
@@ -8,10 +12,12 @@ def download_image_bing(query: object) -> str :
     The Query shall contain player name, club, and season before searching
 
     :param query: A list containing player name and club
-    :return: True if download was successful, False otherwise
+    :return: The path to the folder where images are downloaded.
+    :rtype: str
     """
 
     # Construct the search query
+    # Example: footballer "Alan Shearer" "Newcastle United" "1994"
     search_query = f"footballer {query['Name']} {query['Club']} \"{DESIRED_SEASON}\""
 
     # Download images using the downloader
@@ -21,7 +27,8 @@ def download_image_bing(query: object) -> str :
         limit=BING_IMAGES_PER_PLAYER,
         filter="photo",
         badsites=BING_BAD_FILTER_WEBSITE,
-        verbose=BING_DOWNLOAD_VERBOSE
+        verbose=BING_DOWNLOAD_VERBOSE,
+        timeout=40
     )
 
     output_folder = os.path.join(BING_DOWNLOAD_PATH, search_query)

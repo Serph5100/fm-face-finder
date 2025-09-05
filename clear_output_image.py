@@ -12,4 +12,5 @@ def clear_and_recreate_dir(path, label):
 if __name__ == "__main__":
     clear_and_recreate_dir(CROPPED_IMAGES_PATH, "cropped images")
     clear_and_recreate_dir(BING_DOWNLOAD_PATH, "Bing download")
-    clear_and_recreate_dir(FINAL_IMAGES_PATH, "final images") # Leave this out if you want to keep previous results
+    # Leave this comments out if you want to keep previous results
+    # clear_and_recreate_dir(FINAL_IMAGES_PATH, "final images") 

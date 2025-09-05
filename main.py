@@ -7,15 +7,21 @@ import os
 import cv2
 
 if __name__ == "__main__":
-    print("hello world.")
 
     # ==== Testing Out read_excel.py ====
     excel_data = get_excel_data()
 
-    data_end = min(DATA_END_ROW, len(excel_data))  # Ensure we don't exceed the DataFrame length
+    data_end = min(DATA_END_ROW + 1, len(excel_data))  # Ensure we don't exceed the DataFrame length
+
+    print(f"********************* Process started. *********************\n      Row to be processed from {DATA_START_ROW} to {data_end - 1}\n")
+
     for row_index in range(DATA_START_ROW, data_end):
         try:
             player_data = excel_data.iloc[row_index]
+
+            print(f"\n==== PLAYER NO.{row_index} : {str(player_data['Name']).upper()} ====\n")
+
+            player_id = str(int(player_data["UID"]))
 
             # ==== Download image from Bing ====
             downloaded_image_path = download_image_bing(player_data)
@@ -37,11 +43,11 @@ if __name__ == "__main__":
                     continue
 
                 # ==== Crop image by focusing on head ====
-                crop_image(image, player_data["UID"], image_num_count)
+                crop_image(image, player_id, image_num_count)
                 image_num_count += 1
 
             # ==== Search for the most similar image and save it ====
-            player_image_path = search_familiar_image(folder_name=str(player_data["UID"]))
+            player_image_path = search_familiar_image(folder_name=player_id)
 
             if player_image_path:
                 print(f"Similar image saved at: {player_image_path}")
