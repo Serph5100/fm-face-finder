@@ -1,5 +1,8 @@
 """
 This Script is for cropping image focused on a human head, using VGGHeads Library
+
+VGGHeads Library is from Orest Kupyn, Eugene Khvedchenia and Christian Rupprecht
+source : https://github.com/KupynOrest/head_detector
 """
 import os
 

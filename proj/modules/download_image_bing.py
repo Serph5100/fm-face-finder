@@ -1,5 +1,8 @@
 """
 This script is for downloading images from Bing using the better_bing_image_downloader library.
+
+better_bing_image_downloader is from KTS-o7
+source : https://github.com/KTS-o7/better_bing_image_downloader
 """
 
 from better_bing_image_downloader import downloader

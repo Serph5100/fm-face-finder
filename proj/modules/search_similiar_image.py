@@ -1,6 +1,9 @@
 """
 This script searches for similar images using the DeepImageSearch library.
 loads images from the cropped image folder, indexes them, and finds the most similar image compared to the base image.
+
+DeepImageSearch is from Nilesh Verma
+source : https://github.com/TechyNilesh/DeepImageSearch
 """
 from config import CROPPED_IMAGES_PATH, BASE_IMAGE_PATH, FINAL_IMAGES_PATH
 from DeepImageSearch import Load_Data, Search_Setup

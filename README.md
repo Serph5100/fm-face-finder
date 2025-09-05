@@ -28,7 +28,7 @@ A tool to assist Football Manager players by automating the search for footballe
           model_path = hf_hub_download(REPO_ID, f"{model}.trcd")
           loaded_model = torch.jit.load(model_path, map_location=self._device)
       ```
-    - In `proj/modules/download_image_bing.py`, for the `Better_Bing_Image_Downloader`'s `Downloader` class, remove the code that requests the image source.
+    - In `proj/modules/download_image_bing.py`, for the `Better_Bing_Image_Downloader`'s `Downloader` class, remove the code that ask for input on wheter the user wants the image source. To fasten the automation.
 
 4. **Reload the window** after making these modifications to ensure changes take effect.
 
@@ -57,9 +57,35 @@ A tool to assist Football Manager players by automating the search for footballe
 
 ## After Getting the Output Images
 
-1. Place the `.zip` file in the `/graphics/` folder and extract it.
+1. Place the `.zip` file in the `Sports Interactive/Football Manager/graphics/` folder and extract it.
 2. Use **fmXML** software to generate a config file for Football Manager.
 
 ---
+
+## Credits
+
+This project uses the following open-source libraries:
+
+- **Head Detector**  
+  GitHub Repository: [KupynOrest/head_detector](https://github.com/KupynOrest/head_detector)  
+  Author: Kupyn Orest  
+  License: MIT  
+
+- **DeepImageSearch**  
+  GitHub Repository: [TechyNilesh/DeepImageSearch](https://github.com/TechyNilesh/DeepImageSearch)  
+  Author: Nilesh Tekwani  
+  License: MIT  
+
+- **Better Bing Image Downloader**  
+  GitHub Repository: [KTS-o7/better_bing_image_downloader](https://github.com/KTS-o7/better_bing_image_downloader)  
+  Author: KTS-o7  
+  License: MIT  
+
+---
+
+## ⭐️ Support This Project
+
+If you find **fm-face-finder** helpful, please consider [starring this repository on GitHub](https://github.com/Serph5100/fm-face-finder). Your support helps others discover the project and encourages further development!
+
 
 
